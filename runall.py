@@ -216,7 +216,7 @@ def present_html_footer(stream, alltests):
         <a id="chart_div_anchor_%(FUNCTIONTITLE)s" />
         %(TEXT)s
         <div id="chart_div_%(FUNCTIONTITLE)s" style="width: 600px; height: 350px;"></div>
-        <a href="#" onclick="toggle_visibility('chart_div_result_%(FUNCTIONTITLE)s');">Results:</a>
+        <a href="#chart_div_result_%(FUNCTIONTITLE)s" onclick="toggle_visibility('chart_div_result_%(FUNCTIONTITLE)s');">Results:</a>
         <div id="chart_div_result_%(FUNCTIONTITLE)s" style="display: none">
         <pre>
 %(RESULT)s
