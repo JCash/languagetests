@@ -2,6 +2,15 @@
 <html>
   <head>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script>
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'none')
+                e.style.display = 'block';
+            else
+                e.style.display = 'none';
+        }
+    </script>
       
 
     <script type="text/javascript">
@@ -9,7 +18,7 @@
       google.setOnLoadCallback(drawChartFactorialrecursive);
       function drawChartFactorialrecursive() {
         var data = google.visualization.arrayToDataTable(
-            [['Args', 'C++', 'Python 2', 'Python 3', 'C#'], ['n = 40', 5.913562, 7.948399, 8.383512, 11.1], ['n = 100', 19.405556999999998, 23.471832, 19.260168, 21.900000000000002], ['n = 200', 48.214777000000005, 51.136494, 40.240288, 53.199999999999996], ['n = 400', 98.115212, 164.058685, 106.219053, 168.2], ['n = 600', 154.65868600000002, 292.63448700000004, 198.182106, 359.2], ['n = 800', 211.721024, 435.75000800000004, 315.645218, 630.3]]
+            [['Args', 'C++', 'Python 2', 'Python 3', 'C#'], ['n = 40', 5.8940470000000005, 8.031368, 6.76322, 11.1], ['n = 100', 19.413386000000003, 23.114680999999997, 17.819405, 21.8], ['n = 200', 44.801058, 54.13723, 42.59634, 55.5], ['n = 400', 99.177036, 167.58132, 109.004498, 173.4], ['n = 600', 154.297653, 308.26806999999997, 241.631746, 356.09999999999997], ['n = 800', 216.101995, 428.662062, 325.807571, 686.0]]
         );
 
         var options = {
@@ -36,7 +45,7 @@
       google.setOnLoadCallback(drawChartFactorialloop);
       function drawChartFactorialloop() {
         var data = google.visualization.arrayToDataTable(
-            [['Args', 'C++', 'Python 2', 'Python 3', 'C#'], ['n = 40', 0.640184, 5.828857, 3.2944679999999997, 11.0], ['n = 100', 1.7661980000000002, 17.884731, 10.520935, 23.5], ['n = 200', 4.513846, 37.611485, 17.841101000000002, 52.3], ['n = 400', 15.183276, 94.094515, 49.397707000000004, 169.6], ['n = 600', 23.905217, 178.119898, 112.21408799999999, 347.7], ['n = 800', 41.046937, 274.199486, 192.87061699999998, 616.2]]
+            [['Args', 'C++', 'Python 2', 'Python 3', 'C#'], ['n = 40', 0.749163, 5.783796000000001, 3.1144619999999996, 12.1], ['n = 100', 3.039156, 15.277863, 8.723021, 25.599999999999998], ['n = 200', 4.490347, 35.116911, 17.75527, 49.9], ['n = 400', 12.662879, 99.03717, 51.143408, 185.7], ['n = 600', 24.881035999999998, 202.674866, 112.787485, 416.29999999999995], ['n = 800', 42.90873, 321.207523, 231.047392, 753.9]]
         );
 
         var options = {
@@ -63,7 +72,7 @@
       google.setOnLoadCallback(drawChartFibonaccirecursive);
       function drawChartFibonaccirecursive() {
         var data = google.visualization.arrayToDataTable(
-            [['Args', 'C++', 'Python 2', 'Python 3', 'C#'], ['n = 4', 0.0010199209999999998, 0.00141573, 0.0012447830000000002, 0.0059], ['n = 8', 0.007212299, 0.009949923000000001, 0.00964427, 0.0118], ['n = 12', 0.052974909, 0.06298255900000001, 0.056646585, 0.0287], ['n = 16', 0.34096790499999996, 0.415579319, 0.393904209, 0.15860000000000002], ['n = 20', 2.3297455630000004, 2.819494486, 2.669053555, 1.0183]]
+            [['Args', 'C++', 'Python 2', 'Python 3', 'C#'], ['n = 4', 0.0020308839999999997, 0.002584934, 0.002861261, 0.0104], ['n = 8', 0.016596214, 0.015382528000000001, 0.009189367, 0.0101], ['n = 12', 0.05383274, 0.06498074499999999, 0.063676357, 0.0303], ['n = 16', 0.38848019899999997, 0.43166327499999996, 0.393903494, 0.164], ['n = 20', 3.0425831210000003, 3.719583511, 3.292756319, 1.24]]
         );
 
         var options = {
@@ -90,7 +99,7 @@
       google.setOnLoadCallback(drawChartFibonacciloop);
       function drawChartFibonacciloop() {
         var data = google.visualization.arrayToDataTable(
-            [['Args', 'C++', 'Python 2', 'Python 3', 'C#'], ['n = 25', 2.992553, 4.507065, 2.5439260000000004, 7.0], ['n = 50', 5.699915, 8.46529, 5.31745, 8.8], ['n = 75', 8.403067, 12.457132000000001, 7.299662, 12.700000000000001], ['n = 100', 11.699956, 16.555547999999998, 10.105371, 12.3], ['n = 250', 46.284742, 50.382376, 23.745298, 23.4], ['n = 500', 105.531151, 91.323376, 50.667048, 44.3]]
+            [['Args', 'C++', 'Python 2', 'Python 3', 'C#'], ['n = 25', 3.1917299999999997, 4.961728999999999, 2.579689, 7.199999999999999], ['n = 50', 5.784821, 7.965088, 6.599188, 8.9], ['n = 75', 9.247641, 11.814117000000001, 7.344723, 10.4], ['n = 100', 14.476446999999999, 16.102314000000003, 10.748625, 14.2], ['n = 250', 43.825363, 44.588327, 24.016619, 22.6], ['n = 500', 99.757104, 94.264746, 50.987244, 43.099999999999994]]
         );
 
         var options = {
@@ -115,9 +124,18 @@
       </head>
   <body>
     
-<div><div id="chart_div_Factorialrecursive" style="width: 900px; height: 500px;"></div>
-        Here is some random text <br>
-        Results:<br>
+<a href="#chart_div_anchor_Factorialrecursive">Factorial (recursive)</a><br>
+<a href="#chart_div_anchor_Factorialloop">Factorial (loop)</a><br>
+<a href="#chart_div_anchor_Fibonaccirecursive">Fibonacci (recursive)</a><br>
+<a href="#chart_div_anchor_Fibonacciloop">Fibonacci (loop)</a><br>
+<p/>
+
+        <hr />
+        <a id="chart_div_anchor_Factorialrecursive" />
+        
+        <div id="chart_div_Factorialrecursive" style="width: 600px; height: 350px;"></div>
+        <a href="#" onclick="toggle_visibility('chart_div_result_Factorialrecursive');">Results:</a>
+        <div id="chart_div_result_Factorialrecursive" style="display: none">
         <pre>
 n = 40:
     C++           815915283247897734345611269596115894272000000000
@@ -157,10 +175,15 @@ n = 800:
 
 
         </pre>
-    </div>
-<div><div id="chart_div_Factorialloop" style="width: 900px; height: 500px;"></div>
-        Here is some random text <br>
-        Results:<br>
+        </div>
+    
+
+        <hr />
+        <a id="chart_div_anchor_Factorialloop" />
+        
+        <div id="chart_div_Factorialloop" style="width: 600px; height: 350px;"></div>
+        <a href="#" onclick="toggle_visibility('chart_div_result_Factorialloop');">Results:</a>
+        <div id="chart_div_result_Factorialloop" style="display: none">
         <pre>
 n = 40:
     C++           815915283247897734345611269596115894272000000000
@@ -200,10 +223,15 @@ n = 800:
 
 
         </pre>
-    </div>
-<div><div id="chart_div_Fibonaccirecursive" style="width: 900px; height: 500px;"></div>
-        Here is some random text <br>
-        Results:<br>
+        </div>
+    
+
+        <hr />
+        <a id="chart_div_anchor_Fibonaccirecursive" />
+        
+        <div id="chart_div_Fibonaccirecursive" style="width: 600px; height: 350px;"></div>
+        <a href="#" onclick="toggle_visibility('chart_div_result_Fibonaccirecursive');">Results:</a>
+        <div id="chart_div_result_Fibonaccirecursive" style="display: none">
         <pre>
 n = 4:
     C++           3
@@ -237,10 +265,15 @@ n = 20:
 
 
         </pre>
-    </div>
-<div><div id="chart_div_Fibonacciloop" style="width: 900px; height: 500px;"></div>
-        Here is some random text <br>
-        Results:<br>
+        </div>
+    
+
+        <hr />
+        <a id="chart_div_anchor_Fibonacciloop" />
+        
+        <div id="chart_div_Fibonacciloop" style="width: 600px; height: 350px;"></div>
+        <a href="#" onclick="toggle_visibility('chart_div_result_Fibonacciloop');">Results:</a>
+        <div id="chart_div_result_Fibonacciloop" style="display: none">
         <pre>
 n = 25:
     C++           75025
@@ -280,7 +313,8 @@ n = 500:
 
 
         </pre>
-    </div>
+        </div>
+    
 
   </body>
 </html>
