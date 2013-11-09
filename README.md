@@ -5,7 +5,13 @@ This is my quite unscientific playground for comparing execution times between l
 in different situations. I choose the languages I usually work with or are interested in working with.
 
 For instance, I've heard it so many times that Python is slower than c++ so I start to wonder exactly
-''how'' much slower it is.
+''how'' much slower it is. And people always talk so fondly about C#, so how does that perform?
+
+
+Results
+=======
+
+http://jcash.github.io/languagetests/
 
 
 Implementation Details

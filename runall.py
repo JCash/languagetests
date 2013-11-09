@@ -188,6 +188,15 @@ def present_html_header(stream, alltests):
 <html>
   <head>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script>
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'none')
+                e.style.display = 'block';
+            else
+                e.style.display = 'none';
+        }
+    </script>
       """
     print >>stream, html
 
@@ -201,19 +210,38 @@ def present_html_footer(stream, alltests):
 </html>
     """
     
-    div = """<div><div id="chart_div_%(FUNCTIONTITLE)s" style="width: 900px; height: 500px;"></div>
-        %(TEXT)s <br>
-        Results:<br>
+    
+    div = """
+        <hr />
+        <a id="chart_div_anchor_%(FUNCTIONTITLE)s" />
+        %(TEXT)s
+        <div id="chart_div_%(FUNCTIONTITLE)s" style="width: 600px; height: 350px;"></div>
+        <a href="#" onclick="toggle_visibility('chart_div_result_%(FUNCTIONTITLE)s');">Results:</a>
+        <div id="chart_div_result_%(FUNCTIONTITLE)s" style="display: none">
         <pre>
 %(RESULT)s
         </pre>
-    </div>"""
+        </div>
+    """
+    
+    link = """<a href="#chart_div_anchor_%(FUNCTIONTITLE)s">%(TITLE)s</a><br>"""
     
     print >>stream, html1
+    
+    
+    for groupname, (argslst, tests) in alltests.iteritems():
+        info = dict()
+        info['TITLE'] = groupname
+        info['FUNCTIONTITLE'] = ''.join([x for x in groupname if str.isalpha(x)])
+        
+        print >>stream, link % info
+    
+    print >>stream, "<p/>"
+    
     for groupname, (argslst, tests) in alltests.iteritems():
         info = dict()
         info['FUNCTIONTITLE'] = ''.join([x for x in groupname if str.isalpha(x)])
-        info['TEXT'] = 'Here is some random text'
+        info['TEXT'] = ''
         
         info['RESULT'] = ''        
         for i, args in enumerate(argslst):
