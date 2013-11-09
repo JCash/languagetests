@@ -19,7 +19,7 @@ Here is an example of timings for C++ big int classes (if you are looking into o
 
 Factorial(n=400) (time in microseconds):
 <table>
-    <th><td>Lib</td><td>Time (us)</td></th>
+    <tr><td>Lib</td><td>Time (us)</td></tr>
     <tr><td>gmp</td><td>~13.7</td></tr>
     <tr><td>InfInt</td><td>~107</td></tr>
     <tr><td>BigInteger</td><td>~4100</td></tr>
