@@ -16,13 +16,15 @@ I also tried the BigInteger (https://mattmccutchen.net/bigint) and bigInt (http:
 After trying these out, I felt that I needed more "production quality" (i.e. speed) so I tried GMP (http://gmplib.org/).
 
 Here is an example of timings for C++ big int classes (if you are looking into one).
-| Lib        | Time (us) |
-| :--------- | :-------- |
-| gmp        | ~13.7     |
-| InfInt     | ~107      |
-| BigInteger | ~4100     |
-| bigInt     | ~60000    |
-[ Factorial(n=400) (time in microseconds) ]
+
+Factorial(n=400) (time in microseconds):
+<table>
+    <th><td>Lib</td><td>Time (us)</td></th>
+    <tr><td>gmp</td><td>~13.7</td></tr>
+    <tr><td>InfInt</td><td>~107</td></tr>
+    <tr><td>BigInteger</td><td>~4100</td></tr>
+    <tr><td>bigInt</td><td>~60000</td></tr>
+</table>
 
 I've made it so that the tests use GMP if it's installed, or InfInt.h otherwise (since it's a single header file).
 
