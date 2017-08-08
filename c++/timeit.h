@@ -10,16 +10,18 @@ class CTimeIt
 	std::chrono::duration<float> m_Median;
 	std::chrono::duration<float> m_Min;
 	std::chrono::duration<float> m_Max;
+	size_t m_Count;
 public:
 
 	template<typename FuncResult, typename Func, typename... FuncArgs>
-	FuncResult run(size_t count, Func func, FuncArgs... args)
+	FuncResult run(size_t count, Func func, FuncArgs&... args)
 	{
+		m_Count = count;
 		std::vector<std::chrono::duration<float>> times;
-		times.resize(count);
+		times.resize(m_Count);
 
 		FuncResult result = FuncResult();
-		for( size_t i = 0; i < count; ++i )
+		for( size_t i = 0; i < m_Count; ++i )
 		{
 			auto tstart = std::chrono::high_resolution_clock::now();
 
@@ -33,14 +35,14 @@ public:
 		std::sort( times.begin(), times.end() );
 
 		std::chrono::duration<float> total;
-		for( size_t i = 0; i < count; ++i )
+		for( size_t i = 0; i < m_Count; ++i )
 		{
 			total += times[i];
 		}
 
-		m_Average = total / count;
-		size_t middle = count / 2;
-		if( count & 1 )
+		m_Average = total / m_Count;
+		size_t middle = m_Count / 2;
+		if( m_Count & 1 )
 			m_Median = times[middle];
 		else
 			m_Median = (times[middle-1] + times[middle]) / 2.0f;
@@ -83,4 +85,26 @@ public:
 		return m_Max.count();
 	}
 
+	void report_time(std::ostream& stream, float t)
+	{
+		if( t < 0.000001f )
+			stream << t * 1000000000.0 << " ns";
+		else if( t < 0.001f )
+			stream << t * 1000000.0 << " \u00b5s";
+		else if( t < 0.1f )
+			stream << t * 1000.0 << " ms";
+		else
+			stream << t << " s";
+	}
+
+	void report(std::ostream& stream, const std::string& title)
+	{
+		stream << std::fixed << std::setprecision(3);
+		stream << title << "\titerations:" << m_Count;
+		stream << "\tavg: "; report_time(stream, average());
+		stream << "\tmedian: "; report_time(stream, median());
+		stream << "\tmin: "; report_time(stream, fastest());
+		stream << "\tmax: "; report_time(stream, longest());
+		stream << std::endl;
+	}
 };
